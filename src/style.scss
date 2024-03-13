@@ -1,0 +1,606 @@
+@import url(font.css);
+@import url(reset.css);
+$FiraCode-bold: "FiraCode-Bold";
+$FiraCode-reg: "FiraCode-Regular";
+$FiraCode-light: "FiraCode-Light";
+$FiraCode-med: "FiraCode-Medium";
+$FiraCode-semiBold: "FiraCode-SemiBold";
+
+// ? colors
+
+$primary: #c778dd;
+$background: #282c33;
+$gray: #fcfcfd;
+$gray2: #abb2bf;
+$white: #fff;
+$opacity-grey: #98a2b3;
+
+// ? general
+button {
+  border: none;
+  color: #fff;
+  background: transparent;
+  outline: 1px solid $primary;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-family: $FiraCode-reg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  & span {
+    font-family: $FiraCode-reg;
+    color: $primary;
+    font-weight: 600;
+  }
+}
+html {
+  font-family: $FiraCode-reg;
+  background: $background;
+  color: #fff;
+  font-size: 16px;
+}
+body {
+  position: relative;
+  .body-decor {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    right: 0;
+    top: 0;
+  }
+}
+.container {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.row__container {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & h1 {
+    margin: 7.5rem 0;
+    position: relative;
+    width: 100%;
+
+    & ::after {
+      content: "";
+      position: absolute;
+      right: 20.5%;
+      top: 50%;
+      max-width: 40rem;
+      width: 100%;
+      min-height: 3px;
+      background: $primary;
+    }
+  }
+}
+
+// * header
+.header {
+  min-height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 50px;
+  z-index: 9999;
+  backdrop-filter: blur(7.5px);
+  border-bottom: 1px solid $primary;
+  & h5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    font-family: $FiraCode-semiBold;
+
+    & img {
+      max-width: 1.5rem;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .header__nav {
+    padding: 1.6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      & .header__nav-link:hover::before {
+        opacity: 1;
+      }
+    }
+
+    &-link {
+      color: $white;
+      font-family: $FiraCode-med;
+      position: relative;
+      padding: 0.2rem 0.2rem;
+      &::before {
+        position: absolute;
+        content: "#";
+        font-size: 1rem;
+        left: -0.7rem;
+        color: $primary;
+        font-family: $FiraCode-reg;
+        opacity: 0;
+        transition: 0.3s all;
+      }
+    }
+  }
+}
+// * end of header
+
+// * main
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5.5rem;
+  margin: 5rem 0;
+  // * span color
+  & section span {
+    color: $primary;
+  }
+  // * projects content =>
+  .intro__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+
+    // * txt content
+    &-wrapper {
+      max-width: 33rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1.5rem;
+      & h5 {
+        font-family: $FiraCode-bold;
+        font-size: 2rem;
+        line-height: 2.63rem;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+      & span {
+        color: $primary;
+        font-family: $FiraCode-bold;
+      }
+    }
+
+    &-btn {
+      margin-top: 1rem;
+      cursor: pointer;
+      & span {
+        padding: 0 0.2rem;
+      }
+    }
+
+    // * img content
+    &-picture {
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-status {
+      margin: 0 auto;
+      border: 1px solid $primary;
+      max-width: 22rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      .status__box {
+        max-width: 14px;
+        width: 100%;
+        min-height: 14px;
+        background: $primary;
+        transition: 0.3s all;
+        animation: blink 1s infinite ease-in-out alternate;
+      }
+    }
+  }
+  // * section citate
+  .citate {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-title,
+    span {
+      color: $white;
+      font-family: $FiraCode-med;
+      font-size: 1.5rem;
+      line-height: 1.94rem;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+
+    &-title {
+      position: relative;
+      padding: 2rem;
+      border: 1px solid $gray;
+      & span {
+        position: absolute;
+        padding: 16px;
+        border-bottom: 1px solid $gray;
+        border-left: 1px solid $gray;
+        border-right: 1px solid $gray;
+        bottom: -4rem;
+        right: 0;
+      }
+    }
+  }
+  // * section projects
+  .projects {
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    // * main content
+    .projects__block {
+      max-width: 20.66rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      outline: 1px solid $gray2;
+
+      &-img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &-desc {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        gap: 1.5rem;
+        width: 100%;
+        & span {
+          color: $gray2;
+          font-family: $FiraCode-reg;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.31rem;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1.5rem;
+        outline: 1px solid $gray2;
+        width: 100%;
+        padding: 15px 10px;
+        & h5 {
+          color: $white;
+          font-family: $FiraCode-med;
+          font-size: 1.5rem;
+          line-height: 1.94rem;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+        & p {
+          color: $gray2;
+          font-family: $FiraCode-reg;
+          font-size: 1rem;
+          line-height: 1.31rem;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+
+      &-btns {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.7rem;
+
+        & button {
+          padding: 8px 16px;
+          outline: 1px solid $gray2;
+          cursor: pointer;
+          & span {
+            color: $gray;
+            transition: 0.3s color;
+          }
+          &:hover span {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+  // * section skills
+  .skills {
+    min-height: 100vh;
+
+    & .container {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      & img:nth-child(1) {
+        position: absolute;
+        object-fit: cover;
+        width: 20%;
+        rotate: -90deg;
+        left: 0;
+        top: -10%;
+      }
+      & img:nth-child(2) {
+        position: absolute;
+        object-fit: cover;
+        width: 30%;
+        rotate: -90deg;
+        right: 0;
+        bottom: -30%;
+      }
+      & img:nth-child(3) {
+        position: absolute;
+        object-fit: cover;
+        width: 10%;
+        left: 40%;
+        bottom: -20%;
+        animation: rotating 35s infinite ease-in-out;
+      }
+    }
+    //* main content
+    .skills__content {
+      &-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        gap: 1.5rem;
+      }
+
+      &-holder:nth-child(1) {
+        display: flex;
+        justify-content: flex-end;
+        align-content: baseline;
+        flex-flow: row wrap;
+        max-width: 530px;
+        width: 100%;
+        gap: 0.5rem;
+      }
+      &-holder:nth-child(2) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+      }
+
+      &-box {
+        max-width: 11.13rem;
+        width: 100%;
+        height: fit-content;
+        backdrop-filter: blur(7.5px);
+        background: rgba(0, 0, 0, 0.075);
+      }
+
+      &-title {
+        border-top: 1px solid $gray;
+        border-left: 1px solid $gray;
+        border-right: 1px solid $gray;
+        border-bottom: 2px solid $gray2;
+        padding: 7.5px 8px;
+      }
+
+      &-desc {
+        border-left: 1px solid $gray;
+        border-right: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        padding: 7.5px 8px;
+        & span {
+          color: $gray2;
+        }
+      }
+    }
+  }
+  // * section about
+  .about {
+    & .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    // * main content
+    & .about__content {
+      display: flex;
+      flex-flow: wrap column;
+      gap: 2.5rem;
+
+      & button {
+        max-width: fit-content;
+        width: 100%;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-flow: wrap column;
+        gap: 1.5rem;
+        max-width: 32.19rem;
+        width: 100%;
+
+        & :where(h5, p) {
+          color: $gray2;
+          font-family: $FiraCode-reg;
+          font-size: 1rem;
+          line-height: 1.63rem;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+
+      &-picture {
+        position: relative;
+
+        & img:nth-child(1) {
+          max-width: 21.19rem;
+          width: 100%;
+          object-fit: cover;
+          border: 1px dashed $gray;
+        }
+        & img:nth-child(2) {
+          position: absolute;
+          z-index: -1;
+          width: 40%;
+          object-fit: cover;
+          rotate: (90deg);
+          left: 30px;
+          top: 5px;
+        }
+        & img:nth-child(3) {
+          position: absolute;
+          width: 30%;
+          rotate: (90deg);
+          right: 30px;
+          bottom: 5px;
+        }
+      }
+    }
+  }
+  // * contacts
+  .contacts {
+    // * main content
+    & .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    & .contact__content {
+      &-desc {
+        max-width: 52%;
+        width: 100%;
+        & p {
+          color: $gray2;
+          font-family: $FiraCode-med;
+          font-size: 1rem;
+          line-height: 1.31rem;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+
+      &-socials {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        max-width: 20.75rem;
+        width: 100%;
+        gap: 0.5rem;
+        border: 1px solid $gray;
+        padding: 10px;
+        & div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+// * end of main
+
+// footer
+.footer {
+  padding: 35px 15px 0 15px;
+  width: 100%;
+  border-top: 1px solid $gray2;
+  display: flex;
+  align-content: center;
+  & .container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  & .footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .footer__content-row {
+    display: flex;
+    flex-flow: wrap column;
+    gap: 1rem;
+    div {
+      display: flex;
+      align-content: center;
+      justify-self: center;
+      gap: 0.5rem;
+    }
+    h5 {
+      display: flex;
+      align-self: center;
+    }
+  }
+
+  & .footer__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    & img {
+      object-fit: cover;
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  & .copy__rights {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// ? tools
+@keyframes rotating {
+  0% {
+    transform: rotate(-360deg);
+  }
+} // ? skills .container => img(3)
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} // ? intro ...status => img
+
+// * end of main
